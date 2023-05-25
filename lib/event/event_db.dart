@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:project_if21b/config/api.dart';
 import 'package:project_if21b/event/event_pref.dart';
 import 'package:project_if21b/model/user.dart';
+import 'package:project_if21b/screen/login.dart';
 import 'package:project_if21b/widget/info.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,7 +12,7 @@ class EventDb {
   //fungsi login dg 2 param
   static Future<User?> login(String username, String pass) async {
     User? user;
-
+    print(Uri.parse(Api.login));
     try {
       var response = await http.post(Uri.parse(Api.login), body: {
         'username': username,
@@ -28,9 +29,9 @@ class EventDb {
           EventPref.saveUser(user);
           Info.snackbar('Login Berhasil');
           Future.delayed(Duration(milliseconds: 1700), () {
-            // Get.off(
-            //   Login(),
-            // );
+            Get.off(
+              Login(),
+            );
           });
         } else {
           Info.snackbar('Login Gagal');

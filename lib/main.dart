@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:project_if21b/config/asset.dart';
 import 'package:project_if21b/model/user.dart';
+import 'package:project_if21b/screen/admin/dashboard_admin.dart';
 import 'package:project_if21b/screen/login.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: FutureBuilder(builder: (context, AsyncSnapshot<User?> Snapshot) {
-        return Login();
+        return DashboardAdmin();
       }),
     );
   }
